@@ -11,6 +11,8 @@
       - Import and store data from the "toys.js" file
       - Create a "components" subdirectory + "ToyCard.js" file
 */
+import ToyCard from "./ToyCard";
+import toys from "./toys";
 
 function App() {
   return (
@@ -23,39 +25,49 @@ function App() {
       />
     </div>
 
-    <div class="container">
-      <form class="add-toy-form">
+    <div className="container">
+      <form className="add-toy-form">
         <h3>Create a toy!</h3>
 
         <input
           type="text"
           name="name"
-          value=""
+          defaultValue=""
           placeholder="Enter a toy's name..."
-          class="input-text"
+          className="input-text"
         />
         <br />
         <input
           type="text"
           name="image"
-          value=""
+          defaultValue=""
           placeholder="Enter a toy's image URL..."
-          class="input-text"
+          className="input-text"
         />
         <br />
         <input
           type="submit"
           name="submit"
-          value="Create Toy"
-          class="submit"
+          defaultValue="Create Toy"
+          className="submit"
         />
       </form>
     </div>
-    {/* <p style="text-align:center">
+    <p style={{textAlign:"center"}}>
       Andy needs your help! <button id="new-toy-btn">Add a new toy!</button>
-    </p> */}
+    </p>
     </header>
-    <div id="toy-collection"></div>
+    <div id="toy-collection">
+      {toys.map(toy=>
+        <ToyCard 
+          name={toy.name} 
+          image={toy.image}
+          likes={toy.likes}
+          id={toy.id}
+          key={toy.id}
+        />
+      )}
+    </div>
     </div>
   );
 }
