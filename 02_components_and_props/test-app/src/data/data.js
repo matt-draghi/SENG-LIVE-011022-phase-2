@@ -1,4 +1,4 @@
-[
+const projects = [
   {
     id: 1,
     name: "Great Outdoors Guide",
@@ -90,3 +90,5 @@
     image: "https://i.imgur.com/Japzh6v.png",
   },
 ];
+
+export default projects
