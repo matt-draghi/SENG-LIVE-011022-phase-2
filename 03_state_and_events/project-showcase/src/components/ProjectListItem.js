@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 function ProjectItem({
   id,
@@ -9,11 +9,22 @@ function ProjectItem({
   image
 }) {
   // optionally we can destructure individual properties from project
+  const [claps, setClaps] = useState(0)
+
+  function handleClapClick(event){
+    setClaps(claps => claps + 1)
+    /*
+    Why does setClaps(claps++) cause a problem when setClaps(claps + 1) wouldn't?
+      - claps++ is equivalent to claps = claps + 1
+    setClaps(claps => claps + 1) only returns a new value of claps
+    */
+  }
+
   return (
     <li className="card">
       <figure className="image">
         <img src={image} alt={name} />
-        <button className="claps">👏{0}</button>
+        <button className="claps" onClick={handleClapClick}>👏{claps}</button>
       </figure>
 
       <section className="details">
