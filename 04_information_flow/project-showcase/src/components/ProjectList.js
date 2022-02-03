@@ -12,7 +12,7 @@ function ProjectList(props) {
       project.about.toLowerCase().includes(searchText.toLowerCase())
     );
   })
-  console.log(searchResults);
+  //console.log(searchResults);
 
   // depending on what sortBy is set to, you can set up sortedSearchResults to be something that matches the choice made in sortBy
   // map over the array of project objects => return an array of ProjectItem components
